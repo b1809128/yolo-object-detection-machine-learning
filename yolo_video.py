@@ -18,7 +18,7 @@ colors = np.random.uniform(0, 255, size=(len(classes), 3))
 # rtsp://192.168.0.102:554/1
 # "walking.mp4"
 print("Nhap vao duong dan:")
-path=input()
+path = input()
 cap = cv2.VideoCapture(path)
 
 font = cv2.FONT_HERSHEY_PLAIN
@@ -29,7 +29,6 @@ while True:
     frame_id += 1
 
     height, width, channels = frame.shape
-    
 
     # Detecting objects
     blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
@@ -70,13 +69,11 @@ while True:
             confidence = confidences[i]
             color = colors[class_ids[i]]
             cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
-            cv2.putText(frame, label + " " + str(round(confidence, 2)*100) + "%", (x, y + 30), font, 3, color, 3)
-
-
+            cv2.putText(frame, label + " " + str(round(confidence, 2) * 100) + "%", (x, y + 30), font, 3, color, 3)
 
     elapsed_time = time.time() - starting_time
     fps = elapsed_time
-    cv2.putText(frame, "FPS: " + str(round(fps, 2)*10), (10, 50), font, 2, (0, 255, 0), 3)
+    cv2.putText(frame, "FPS: " + str(round(fps, 2) * 10), (10, 50), font, 2, (0, 255, 0), 3)
     cv2.imshow("Image", frame)
     key = cv2.waitKey(1)
     if key == 27:

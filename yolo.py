@@ -101,7 +101,7 @@ if len(idxs) > 0:
 # show the output image
 cv2.imshow("Image", image)
 cv2.imwrite("output/abc.jpg", image)
-#print("Format the image is save to directory output/*.jpg")
+print("Format the image is save to directory output/*.jpg")
 cv2.waitKey(0)
 
 # python yolo.py --image images/boat.jpg --yolo yolo-coco
