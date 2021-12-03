@@ -15,10 +15,12 @@ output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # Loading image
-# rtsp://192.168.0.102:554/1
+# rtsp://192.168.1.101:554/1
 # "walking.mp4"
 print("Nhap vao duong dan:")
 path = input()
+if path=="default":
+    path = 0
 cap = cv2.VideoCapture(path)
 
 font = cv2.FONT_HERSHEY_PLAIN
@@ -78,6 +80,5 @@ while True:
     key = cv2.waitKey(1)
     if key == 27:
         break
-
 cap.release()
 cv2.destroyAllWindows()
