@@ -22,7 +22,6 @@ path = input()
 if path=="default":
     path = 0
 cap = cv2.VideoCapture(path)
-
 font = cv2.FONT_HERSHEY_PLAIN
 starting_time = time.time()
 frame_id = 0
@@ -31,7 +30,7 @@ while True:
     frame_id += 1
 
     height, width, channels = frame.shape
-
+    cv2.imshow("Image Realtime", frame)
     # Detecting objects
     blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
 
